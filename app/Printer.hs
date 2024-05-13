@@ -6,12 +6,11 @@ cc :: Ast -> Text
 cc S = pack "S"
 cc K = pack "K"
 cc I = pack "I"
-cc (App (App x y) z) =
-  pack "(" <>
+cc (App x (App y z)) =
   cc x <>
-  cc y <>
-  pack ")" <>
-  cc z
+  pack "(" <>
+  cc (App y z) <>
+  pack ")"
 cc (App x y) = cc x <> cc y
 
 unlambda :: Ast -> Text

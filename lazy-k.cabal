@@ -65,7 +65,8 @@ executable lazy-k
         Parser,
         Type,
         Processor,
-        Printer
+        Printer,
+        Reduction
 
     -- LANGUAGE extensions used by modules in this package.
     -- other-extensions:
@@ -74,7 +75,8 @@ executable lazy-k
     build-depends:
         base ^>=4.17.2.1,
         parsec,
-        text
+        text,
+        mtl
 
     -- Directories containing source files.
     hs-source-dirs:   app

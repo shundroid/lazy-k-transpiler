@@ -1,0 +1,1 @@
+\a f.f (\s z.s z) (\f x y.x)

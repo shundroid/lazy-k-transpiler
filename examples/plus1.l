@@ -1,1 +1,1 @@
-\x.\s z.x s z
+\f.f (\x.\s z.(x (\x y.x)) s z) (\f x y.x)

@@ -3,6 +3,7 @@ import System.Environment (getArgs)
 import Parser (parseL)
 import Processor (toSKI, iterateSimplify)
 import Printer (cc, unlambda)
+import Reduction (runReduction)
 
 main :: IO ()
 main = do
@@ -16,5 +17,12 @@ main = do
   case parsed of
     Left err -> print err
     Right parsed -> do
-      print $ cc $ iterateSimplify $ toSKI parsed
-      print $ unlambda $ iterateSimplify $ toSKI parsed
+      print parsed
+      let reduced = runReduction parsed
+      print reduced
+      let skied = toSKI reduced
+      let simplified = iterateSimplify skied
+      print $ cc simplified
+      print $ unlambda simplified
+      -- check
+      print $ runReduction simplified
